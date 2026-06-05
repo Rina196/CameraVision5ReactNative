@@ -9,7 +9,12 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera to capture photos and videos.",
+        "NSMicrophoneUsageDescription": "$(PRODUCT_NAME) needs access to your Microphone to record audio for video recordings."
+      },
+      "bundleIdentifier": "com.rinnt.CameraVisionV5"
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +24,15 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "minSdkVersion": 26,
+      "package": "com.rinnt.CameraVisionV5"
     },
     "web": {
       "output": "static",
@@ -27,6 +40,13 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "$(PRODUCT_NAME) needs access to your photo library so you can save filtered captures.",
+          "savePhotosPermission": "$(PRODUCT_NAME) saves filtered camera captures to your photo library."
+        }
+      ],
       [
         "expo-splash-screen",
         {
